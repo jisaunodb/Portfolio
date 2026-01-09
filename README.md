@@ -1,6 +1,7 @@
-# React + Vite
+<!-- # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
 
 Currently, two official plugins are available:
 
@@ -13,4 +14,34 @@ The React Compiler is not enabled on this template because of its impact on dev 
 
 ## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project. -->
+
+
+# Personal Portfolio Website
+
+A modern and responsive personal portfolio built with **React** and **Vite**.
+This project showcases my skills, projects, and contact information in a clean and professional layout.
+
+## Live Demo
+ https://portfolio-mdjisauns-projects.vercel.app/
+
+##  Tech Stack
+- React
+- Vite
+- JavaScript (ES6+)
+- CSS / Tailwind CSS (if used)
+- Vercel (Deployment)
+
+## Features
+- Fast and lightweight performance
+- Responsive design for all devices
+- Clean UI and smooth navigation
+- Easy to maintain and extend
+
+## Installation & Setup
+
+```bash
+git clone https://github.com/jisaunodb/Portfolio.git
+cd Portfolio
+npm install
+npm run dev

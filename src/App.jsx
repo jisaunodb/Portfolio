@@ -5,7 +5,17 @@ import { Menu, X, Github, Linkedin, Mail, Phone, MapPin, Send, ChevronDown, Brie
 import { FaCode } from "react-icons/fa";
 import profilepic from "./assets/Foyjur-rahman.png"
 // import Home from './Component/Home/Home'
-
+import {
+    FaBootstrap,
+    FaReact,
+    FaJs,
+    FaNodeJs,
+    FaGitAlt,
+    FaFigma,
+} from "react-icons/fa";
+import { SiTailwindcss, SiMongodb, SiFirebase, SiExpress } from "react-icons/si";
+import { TbBrandCpp, TbBrandPython } from "react-icons/tb";
+import { HiOutlineDatabase } from "react-icons/hi";
 function App() {
 
    const [menuOpen, setMenuOpen] = useState(false);
@@ -104,6 +114,20 @@ function App() {
     }
   };
 
+  const skills = [
+    { name: "Bootstrap", icon: <FaBootstrap className="text-purple-500" /> },
+    { name: "React", icon: <FaReact className="text-cyan-400" /> },
+    { name: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss className="text-sky-400" /> },
+    { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
+    { name: "Express", icon: <SiExpress className="text-gray-300 " /> },
+    { name: "MongoDB", icon: <SiMongodb className="text-green-400" /> },
+    { name: "Firebase", icon: <SiFirebase className="text-orange-400" /> },
+    { name: "Git & GitHub", icon: <FaGitAlt className="text-red-400 " /> },
+    { name: "Figma", icon: <FaFigma className="text-pink-500" /> },
+];
+
+
   return (
     <div className="bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white min-h-screen">
       {/* Animated Background */}
@@ -150,7 +174,7 @@ function App() {
 
           {menuOpen && (
             <div className="md:hidden pb-4 space-y-2 animate-in slide-in-from-top">
-              {['home', 'Work', 'contact'].map(item => (
+              {['home', 'Work', 'Skills','contact'].map(item => (
                 <a
                   key={item}
                   href={`#${item}`}
@@ -213,8 +237,8 @@ function App() {
           </div>
         </div>
 
-        <a href="#Work" className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown size={32} className="text-blue-400" />
+        <a href="#Work" className="z-10 cursor-pointer absolute bottom-15 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <ChevronDown size={32} className=" text-blue-400 " />
         </a>
       </section>
 
@@ -306,66 +330,59 @@ function App() {
           </div>
         </div>
       </section>
-      {/* Project  */}
-      {/* <section id="Skills" className={`relative py-32 px-4 transition-all duration-1000 ${isVisible.Skills ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <div className="max-w-5xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Work Skills
-            </h2>
-            <p className="text-gray-400 text-lg">My professional journey so far</p>
-          </div>
 
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"></div>
+      {/* Skills */}
+     <section id="Skills" className={`mt-[50px] py-20 relative min-h-screen flex items-center justify-center px-4 pt-20 transition-all duration-1000 ${isVisible.Skills ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div>
 
-            <div className="space-y-12">
-              {Skills.map((Skills, index) => (
-                <div
-                  key={index}
-                  className={`relative transition-all duration-700 delay-${index * 100} ${
-                    isVisible.Skills ? 'opacity-100 translate-x-0' : index % 2 === 0 ? 'opacity-0 -translate-x-10' : 'opacity-0 translate-x-10'
-                  }`}
-                >
-                  <div className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                    <div className="w-5/12"></div>
-                    <div className={`absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-${Skills.color}-500 border-4 border-gray-900 shadow-lg shadow-${Skills.color}-500/50`}></div>
-                    <div className="w-5/12"></div>
-                  </div>
+            <div className="max-w-5xl mx-auto">
+                <h2 className="text-center text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Skills</h2>
 
-                  <div className={`flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                    <div className="w-5/12 px-6">
-                      <div className={`bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 border border-${Skills.color}-500/20 hover:border-${Skills.color}-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-${Skills.color}-500/20 group hover:scale-105`}>
-                        <div className="flex items-start justify-between mb-3">
-                          <h3 className={`text-xl font-bold text-${Skills.color}-400 group-hover:text-${Skills.color}-300 transition-colors`}>
-                            {Skills.role}
-                          </h3>
-                          <span className="text-sm text-gray-400 bg-gray-800 px-3 py-1 rounded-full">
-                            {Skills.period}
-                          </span>
+                <p className="text-gray-400 text-lg text-center mb-[30px]">A summary of my technical skills and tools I use for development.</p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    {skills.map((skill, index) => (
+                        <div
+                            key={index}
+                            className="bg-gray-800 p-5 rounded-xl text-center shadow-lg hover:shadow-teal-500/20 hover:scale-105 transition flex flex-col items-center gap-3"
+                        >
+                            <div className="text-3xl">{skill.icon}</div>
+                            <span className="text-sm font-medium">{skill.name}</span>
                         </div>
-                        <p className="text-purple-400 mb-3 font-medium">{Skills.company}</p>
-                        <p className="text-gray-400 mb-4 leading-relaxed">{Skills.description}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {Skills.skills.map((skill, idx) => (
-                            <span key={idx} className={`px-3 py-1 bg-${Skills.color}-500/10 text-${Skills.color}-400 rounded-full text-xs font-medium`}>
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="w-2/12"></div>
-                    <div className="w-5/12"></div>
-                  </div>
+                    ))}
                 </div>
-              ))}
             </div>
+
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="text-center p-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-2xl border border-cyan-500/20">
+            <div className="text-4xl font-black bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">
+              10+
+            </div>
+            <div className="text-gray-400 text-sm">Technologies</div>
+          </div>
+          <div className="text-center p-6 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl border border-purple-500/20">
+            <div className="text-4xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-2">
+              4+
+            </div>
+            <div className="text-gray-400 text-sm">Projects</div>
+          </div>
+          <div className="text-center p-6 bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-2xl border border-green-500/20">
+            <div className="text-4xl font-black bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent mb-2">
+              1+
+            </div>
+            <div className="text-gray-400 text-sm">Years Experience</div>
+          </div>
+          <div className="text-center p-6 bg-gradient-to-br from-orange-500/10 to-yellow-500/10 rounded-2xl border border-orange-500/20">
+            <div className="text-4xl font-black bg-gradient-to-r from-orange-400 to-yellow-500 bg-clip-text text-transparent mb-2">
+              90%
+            </div>
+            <div className="text-gray-400 text-sm">Dedication</div>
           </div>
         </div>
-      </section> */}
+      </div>
+        </section>
 
-      {/* Contact */}
+
+
       <section id="contact" className={`relative py-32 px-4 transition-all duration-1000 ${isVisible.contact ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-16">
